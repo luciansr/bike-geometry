@@ -5,8 +5,8 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.less'
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'bike-fit';
+  title = 'bike-fit-simulator';
 }
