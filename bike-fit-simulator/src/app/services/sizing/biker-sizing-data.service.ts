@@ -14,4 +14,11 @@ export class BikerSizingDataService {
   updateBikerSizing(data: BikerSizing) {
     this.bikerSizingData.next(data);
   }
+
+  setInitialValue(initialValues: BikerSizing): BikerSizing {
+    if (Object.keys(this.bikerSizingData.getValue()).length === 0) {
+      this.bikerSizingData.next(initialValues);
+    }
+    return this.bikerSizingData.getValue();
+  }
 }

@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { BikerSizingDataService } from '../services/sizing/biker-sizing-data.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { BikerSizing } from '../services/sizing/biker-sizing';
 
 @Component({
@@ -16,14 +21,14 @@ export class BikerSizingComponent {
     private bikerSizingDataService: BikerSizingDataService,
     private formBuilder: FormBuilder
   ) {
-    const initialValues = {
-      torso: 65,
-      upperLeg: 55,
-      lowerLeg: 65,
-      footSize: 42,
-    };
+    const initialValues =
+      bikerSizingDataService.setInitialValue({
+        torso: 65,
+        upperLeg: 55,
+        lowerLeg: 65,
+        footSize: 42,
+      });
     this.bikerForm = this.formBuilder.group<BikerSizing>(initialValues);
-    this.bikerSizingDataService.updateBikerSizing(initialValues);
   }
 
   ngOnInit(): void {
