@@ -1,7 +1,7 @@
 <div class="my-3 p-3 bg-body rounded shadow-sm">
     <h6 class="pb-2 mb-0">Biker sizing</h6>
 
-    <form  (ngSubmit)="updateData()">
+    <form [formGroup]="bikerForm">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Torso size in cm</span>
             <input
@@ -10,17 +10,8 @@
                 placeholder="Torso size in cm"
                 aria-label="Torso size in cm"
                 aria-describedby="basic-addon1"
-                [(ngModel)]="torsoSize"
-            />
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Lower leg size in cm</span>
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Lower leg size in cm"
-                aria-label="Lower leg size in cm"
-                aria-describedby="basic-addon1"
+                name="torso"
+                formControlName="torso"
             />
         </div>
         <div class="input-group mb-3">
@@ -31,6 +22,20 @@
                 placeholder="Upper leg size in cm"
                 aria-label="Upper leg size in cm"
                 aria-describedby="basic-addon1"
+                name="upperLeg"
+                formControlName="upperLeg"
+            />
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Lower leg size in cm</span>
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Lower leg size in cm"
+                aria-label="Lower leg size in cm"
+                aria-describedby="basic-addon1"
+                name="lowerLeg"
+                formControlName="lowerLeg"
             />
         </div>
         <div class="input-group mb-3">
@@ -41,7 +46,10 @@
                 placeholder="42cm"
                 aria-label="Foot size in cm"
                 aria-describedby="basic-addon1"
+                name="footSize"
+                formControlName="footSize"
             />
         </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
