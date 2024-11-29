@@ -15,9 +15,14 @@ export class BikerSizingDataService {
     this.bikerSizingData.next(data);
   }
 
-  setInitialValue(initialValues: BikerSizing): BikerSizing {
+  getInitialValue(): BikerSizing {
     if (Object.keys(this.bikerSizingData.getValue()).length === 0) {
-      this.bikerSizingData.next(initialValues);
+      this.bikerSizingData.next({
+        torso: 65,
+        upperLeg: 55,
+        lowerLeg: 65,
+        footSize: 42,
+      });
     }
     return this.bikerSizingData.getValue();
   }

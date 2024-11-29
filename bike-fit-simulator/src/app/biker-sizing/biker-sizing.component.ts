@@ -22,12 +22,7 @@ export class BikerSizingComponent {
     private formBuilder: FormBuilder
   ) {
     const initialValues =
-      bikerSizingDataService.setInitialValue({
-        torso: 65,
-        upperLeg: 55,
-        lowerLeg: 65,
-        footSize: 42,
-      });
+      bikerSizingDataService.getInitialValue();
     this.bikerForm = this.formBuilder.group<BikerSizing>(initialValues);
   }
 
