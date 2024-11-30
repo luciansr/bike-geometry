@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { VisualizationPanelComponent } from '../visualization/visualization-panel/visualization-panel.component';
+import { VisualizationPanelComponent } from '../../visualization/visualization-panel/visualization-panel.component';
 import { RouterModule } from '@angular/router';
 
 
