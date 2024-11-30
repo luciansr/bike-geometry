@@ -1,5 +1,14 @@
-<app-biker-visualization> </app-biker-visualization>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="pb-2 mb-0">Biker Visualization</h6>
 
-<svg>
+  <div *ngIf="bikerSizingData">
+    {{ bikerSizingData | json }}
+  </div>
+  
+    <app-biker-visualization> </app-biker-visualization>
+
+    <svg>
     
-</svg>
+    </svg>
+  </div>
+

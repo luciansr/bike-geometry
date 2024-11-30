@@ -1,14 +1,6 @@
-<div class="my-3 p-3 bg-body rounded shadow-sm">
-  <h6 class="pb-2 mb-0">Biker Visualization</h6>
-  <div *ngIf="bikerSizingData">
-    {{ bikerSizingData | json }}
-  </div>
-</div>
-
 <app-biker-foot [footSize]="bikerSizingData.footSize"></app-biker-foot>
 <app-biker-leg
-
-  [inseam]="0"
+  [inseam]="bikerSizingData.inseam"
   [femurSize]="bikerSizingData.femurSize"
   [tibiaSize]="bikerSizingData.tibiaSize"
 ></app-biker-leg>
