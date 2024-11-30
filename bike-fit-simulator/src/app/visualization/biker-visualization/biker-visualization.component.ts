@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BikerSizingDataService } from '../services/sizing/biker-sizing-data.service';
-import { BikerSizing } from '../services/sizing/biker-sizing';
+import { BikerSizingDataService } from '../../services/sizing/biker-sizing-data.service';
+import { BikerSizing } from '../../services/sizing/biker-sizing';
 import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
