@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BikerSizingDataService } from '../../services/sizing/biker-sizing-data.service';
 import {
   FormBuilder,
@@ -14,7 +14,7 @@ import { CyclistSizing} from '../../services/sizing/cyclist-sizing';
   templateUrl: './biker-sizing.component.html',
   styleUrl: './biker-sizing.component.css',
 })
-export class BikerSizingComponent {
+export class BikerSizingComponent implements OnInit {
   bikerForm: FormGroup;
 
   sizingData = CyclistSizing.sizingData();

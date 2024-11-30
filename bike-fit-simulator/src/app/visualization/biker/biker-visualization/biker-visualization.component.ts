@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BikerSizingDataService } from '../../../services/sizing/biker-sizing-data.service';
 import { CyclistSizing} from '../../../services/sizing/cyclist-sizing';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { SvgScaleService } from '../../../services/positioning/scale/svg-scale.service';
 
 @Component({
@@ -10,10 +10,10 @@ import { SvgScaleService } from '../../../services/positioning/scale/svg-scale.s
   templateUrl: './biker-visualization.component.html',
   styleUrl: './biker-visualization.component.css',
 })
-export class BikerVisualizationComponent {
-  private zoom: number = 2.0;
-  svgSizeX: number = this.zoom * 300; // 300 pixels = 3m = 300cm
-  svgSizeY: number = this.zoom * 200; // 200 pixels = 2m = 200cm
+export class BikerVisualizationComponent implements OnInit {
+  private zoom = 2.0;
+  svgSizeX = this.zoom * 300; // 300 pixels = 3m = 300cm
+  svgSizeY = this.zoom * 200; // 200 pixels = 2m = 200cm
   private scale3M_X = this.svgSizeX * 100; // 3M in mm
   private scale2M_Y = this.svgSizeX * 100; // 2M in mm
 

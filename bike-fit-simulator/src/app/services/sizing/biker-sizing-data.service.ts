@@ -11,8 +11,6 @@ export class BikerSizingDataService {
   public currentData: Observable<CyclistSizing> =
     this.cyclistSizingData.asObservable();
 
-  constructor() {}
-
   updateBikerSizing(data: CyclistSizing) {
     this.cyclistSizingData.next(data);
   }

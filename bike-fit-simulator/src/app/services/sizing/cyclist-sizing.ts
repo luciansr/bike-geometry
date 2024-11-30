@@ -1,15 +1,15 @@
 import Sizing from './sizing';
 
 export class CyclistSizing {
-  public height: number = 179;
-  public inseam: number = 82;
-  public torso: number = 67;
-  public arm: number = 67;
-  public footSize: number = 42;
-  public tibiaSize: number = 50;
-  public femurSize: number = 50;
+  public height = 179;
+  public inseam = 82;
+  public torso = 67;
+  public arm = 67;
+  public footSize = 42;
+  public tibiaSize = 50;
+  public femurSize = 50;
 
-  public static sizingData(): Array<Sizing> {
+  public static sizingData(): Sizing[] {
     return [
       {
         name: 'height',

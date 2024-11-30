@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BikerVisualizationComponent } from '../biker/biker-visualization/biker-visualization.component';
 import { CyclistSizing} from '../../services/sizing/cyclist-sizing';
 import { BikerSizingDataService } from '../../services/sizing/biker-sizing-data.service';
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './visualization-panel.component.html',
   styleUrl: './visualization-panel.component.css'
 })
-export class VisualizationPanelComponent {
+export class VisualizationPanelComponent implements OnInit {
   cyclistSizingData: CyclistSizing;
 
   constructor(private bikerSizingDataService: BikerSizingDataService) {
