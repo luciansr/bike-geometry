@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BikerSizingDataService } from '../../../services/sizing/biker-sizing-data.service';
 import { BikerSizing } from '../../../services/sizing/biker-sizing';
 import { CommonModule, NgIf } from '@angular/common';
+import { SvgScaleService } from '../../../services/positioning/scale/svg-scale.service';
 
 @Component({
   selector: 'app-biker-visualization',
@@ -21,11 +22,14 @@ export class BikerVisualizationComponent {
     y1: this.svgSizeY,
     x2: this.svgSizeX,
     y2: this.svgSizeY,
-  }
+  };
 
   bikerSizingData: BikerSizing;
 
-  constructor(private bikerSizingDataService: BikerSizingDataService) {
+  constructor(
+    private bikerSizingDataService: BikerSizingDataService,
+    private svgScaleService: SvgScaleService
+  ) {
     this.bikerSizingData = bikerSizingDataService.getInitialValue();
   }
 
@@ -38,21 +42,4 @@ export class BikerVisualizationComponent {
   dataValues() {
     return Object.entries(this.bikerSizingData);
   }
-
-
-
-  private getPositionFromGroundLeft(xInMilimeters: number, yInMilimeters: number): {
-    x: number,
-    y: number
-  } {
-    
-    let x = 0 + xInMilimeters / this.scale3M_X * this.svgSizeX;
-    let y = this.svgSizeY + yInMilimeters / this.scale2M_Y * this.svgSizeY;
-
-    return {
-      x: x,
-      y: y
-    };
-  }
-
 }
