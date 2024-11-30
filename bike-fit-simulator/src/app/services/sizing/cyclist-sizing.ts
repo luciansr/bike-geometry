@@ -1,6 +1,6 @@
 import Sizing from './sizing';
 
-export class BikerSizing {
+export class CyclistSizing {
   public height: number = 179;
   public inseam: number = 82;
   public torso: number = 67;

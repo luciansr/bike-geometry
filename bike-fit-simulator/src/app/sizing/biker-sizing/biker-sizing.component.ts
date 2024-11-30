@@ -6,7 +6,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { BikerSizing } from '../../services/sizing/biker-sizing';
+import { CyclistSizing} from '../../services/sizing/cyclist-sizing';
 
 @Component({
   selector: 'app-biker-sizing',
@@ -17,18 +17,18 @@ import { BikerSizing } from '../../services/sizing/biker-sizing';
 export class BikerSizingComponent {
   bikerForm: FormGroup;
 
-  sizingData = BikerSizing.sizingData();
+  sizingData = CyclistSizing.sizingData();
 
   constructor(
     private bikerSizingDataService: BikerSizingDataService,
     private formBuilder: FormBuilder
   ) {
     const initialValues = bikerSizingDataService.getInitialValue();
-    this.bikerForm = this.formBuilder.group<BikerSizing>(initialValues);
+    this.bikerForm = this.formBuilder.group<CyclistSizing>(initialValues);
   }
 
   ngOnInit(): void {
-    this.bikerForm.valueChanges.subscribe((values: BikerSizing) => {
+    this.bikerForm.valueChanges.subscribe((values: CyclistSizing) => {
       this.bikerSizingDataService.updateBikerSizing(values);
     });
   }

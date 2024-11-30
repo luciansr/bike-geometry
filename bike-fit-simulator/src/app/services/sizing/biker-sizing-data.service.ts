@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { BikerSizing } from './biker-sizing';
+import { CyclistSizing} from './cyclist-sizing';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BikerSizingDataService {
-  private bikerSizingData: BehaviorSubject<BikerSizing> =
-    new BehaviorSubject<BikerSizing>(new BikerSizing());
-  public currentData: Observable<BikerSizing> =
-    this.bikerSizingData.asObservable();
+  private cyclistSizingData: BehaviorSubject<CyclistSizing> =
+    new BehaviorSubject<CyclistSizing>(new CyclistSizing());
+  public currentData: Observable<CyclistSizing> =
+    this.cyclistSizingData.asObservable();
 
   constructor() {}
 
-  updateBikerSizing(data: BikerSizing) {
-    this.bikerSizingData.next(data);
+  updateBikerSizing(data: CyclistSizing) {
+    this.cyclistSizingData.next(data);
   }
 
-  getInitialValue(): BikerSizing {
-    return this.bikerSizingData.getValue();
+  getInitialValue(): CyclistSizing{
+    return this.cyclistSizingData.getValue();
   }
 }

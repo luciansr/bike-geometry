@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BikerSizingDataService } from '../../../services/sizing/biker-sizing-data.service';
-import { BikerSizing } from '../../../services/sizing/biker-sizing';
+import { CyclistSizing} from '../../../services/sizing/cyclist-sizing';
 import { CommonModule, NgIf } from '@angular/common';
 import { SvgScaleService } from '../../../services/positioning/scale/svg-scale.service';
 
@@ -24,22 +24,22 @@ export class BikerVisualizationComponent {
     y2: this.svgSizeY,
   };
 
-  bikerSizingData: BikerSizing;
+  cyclistSizingData: CyclistSizing;
 
   constructor(
     private bikerSizingDataService: BikerSizingDataService,
     private svgScaleService: SvgScaleService
   ) {
-    this.bikerSizingData = bikerSizingDataService.getInitialValue();
+    this.cyclistSizingData = bikerSizingDataService.getInitialValue();
   }
 
   ngOnInit() {
     this.bikerSizingDataService.currentData.subscribe((data) => {
-      this.bikerSizingData = data;
+      this.cyclistSizingData = data;
     });
   }
 
   dataValues() {
-    return Object.entries(this.bikerSizingData);
+    return Object.entries(this.cyclistSizingData);
   }
 }

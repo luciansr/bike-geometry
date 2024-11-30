@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BikerVisualizationComponent } from '../biker/biker-visualization/biker-visualization.component';
-import { BikerSizing } from '../../services/sizing/biker-sizing';
+import { CyclistSizing} from '../../services/sizing/cyclist-sizing';
 import { BikerSizingDataService } from '../../services/sizing/biker-sizing-data.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,15 +11,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './visualization-panel.component.css'
 })
 export class VisualizationPanelComponent {
-  bikerSizingData: BikerSizing;
+  cyclistSizingData: CyclistSizing;
 
   constructor(private bikerSizingDataService: BikerSizingDataService) {
-    this.bikerSizingData = bikerSizingDataService.getInitialValue();
+    this.cyclistSizingData = bikerSizingDataService.getInitialValue();
   }
 
   ngOnInit() {
     this.bikerSizingDataService.currentData.subscribe((data) => {
-      this.bikerSizingData = data;
+      this.cyclistSizingData = data;
     });
   }
 }

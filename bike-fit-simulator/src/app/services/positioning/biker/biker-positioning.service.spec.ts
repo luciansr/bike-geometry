@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BikerPositioningService } from '../../../biker-positioning.service';
+import { BikerPositioningService } from './biker-positioning.service';
 
 describe('BikerPositioningService', () => {
   let service: BikerPositioningService;
