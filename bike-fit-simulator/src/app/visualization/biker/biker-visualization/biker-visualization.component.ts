@@ -10,6 +10,19 @@ import { CommonModule, NgIf } from '@angular/common';
   styleUrl: './biker-visualization.component.css',
 })
 export class BikerVisualizationComponent {
+  private zoom: number = 2.0;
+  svgSizeX: number = this.zoom * 300; // 300 pixels = 3m = 300cm
+  svgSizeY: number = this.zoom * 200; // 200 pixels = 2m = 200cm
+  private scale3M_X = this.svgSizeX * 100; // 3M in mm
+  private scale2M_Y = this.svgSizeX * 100; // 2M in mm
+
+  floor = {
+    x1: 0,
+    y1: this.svgSizeY,
+    x2: this.svgSizeX,
+    y2: this.svgSizeY,
+  }
+
   bikerSizingData: BikerSizing;
 
   constructor(private bikerSizingDataService: BikerSizingDataService) {
@@ -25,4 +38,21 @@ export class BikerVisualizationComponent {
   dataValues() {
     return Object.entries(this.bikerSizingData);
   }
+
+
+
+  private getPositionFromGroundLeft(xInMilimeters: number, yInMilimeters: number): {
+    x: number,
+    y: number
+  } {
+    
+    let x = 0 + xInMilimeters / this.scale3M_X * this.svgSizeX;
+    let y = this.svgSizeY + yInMilimeters / this.scale2M_Y * this.svgSizeY;
+
+    return {
+      x: x,
+      y: y
+    };
+  }
+
 }
