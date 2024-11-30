@@ -21,6 +21,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/">Biker sizing</a>
         </li>
+        @for(item of menuItems; track item) {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="{{ item.route }}">{{ item.label }}</a>
+          </li>
+        }
         <li class="nav-item">
           <a class="nav-link" routerLink="/about">About</a>
         </li>

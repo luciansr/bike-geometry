@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { BikerSizingDataService } from '../services/sizing/biker-sizing-data.service';
+import { BikerSizingDataService } from '../../services/sizing/biker-sizing-data.service';
 import {
   FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { BikerSizing } from '../services/sizing/biker-sizing';
+import { BikerSizing } from '../../services/sizing/biker-sizing';
 
 @Component({
   selector: 'app-biker-sizing',
