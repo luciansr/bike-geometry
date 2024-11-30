@@ -17,12 +17,13 @@ import { BikerSizing } from '../services/sizing/biker-sizing';
 export class BikerSizingComponent {
   bikerForm: FormGroup;
 
+  sizingData = BikerSizing.sizingData();
+
   constructor(
     private bikerSizingDataService: BikerSizingDataService,
     private formBuilder: FormBuilder
   ) {
-    const initialValues =
-      bikerSizingDataService.getInitialValue();
+    const initialValues = bikerSizingDataService.getInitialValue();
     this.bikerForm = this.formBuilder.group<BikerSizing>(initialValues);
   }
 

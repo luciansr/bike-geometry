@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BikerVisualizationComponent } from '../biker-visualization/biker-visualization.component';
+import { BikerVisualizationComponent } from '../biker/biker-visualization/biker-visualization.component';
 
 @Component({
   selector: 'app-visualization-panel',

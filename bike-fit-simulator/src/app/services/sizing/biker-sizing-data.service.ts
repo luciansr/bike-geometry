@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { BikerSizing } from './biker-sizing';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BikerSizingDataService {
-  private bikerSizingData = new BehaviorSubject<BikerSizing>({});
-  currentData = this.bikerSizingData.asObservable();
+  private bikerSizingData: BehaviorSubject<BikerSizing> =
+    new BehaviorSubject<BikerSizing>(new BikerSizing());
+  public currentData: Observable<BikerSizing> =
+    this.bikerSizingData.asObservable();
 
   constructor() {}
 
@@ -16,14 +18,6 @@ export class BikerSizingDataService {
   }
 
   getInitialValue(): BikerSizing {
-    if (Object.keys(this.bikerSizingData.getValue()).length === 0) {
-      this.bikerSizingData.next({
-        torso: 65,
-        upperLeg: 55,
-        lowerLeg: 65,
-        footSize: 42,
-      });
-    }
     return this.bikerSizingData.getValue();
   }
 }
