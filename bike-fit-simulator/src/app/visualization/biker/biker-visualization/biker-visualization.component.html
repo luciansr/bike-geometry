@@ -1,6 +1,7 @@
-<app-biker-foot [footSize]="bikerSizingData.footSize"></app-biker-foot>
-<app-biker-leg
-  [inseam]="bikerSizingData.inseam"
-  [femurSize]="bikerSizingData.femurSize"
-  [tibiaSize]="bikerSizingData.tibiaSize"
-></app-biker-leg>
+<svg height="200" width="300" xmlns="http://www.w3.org/2000/svg">
+  <line x1="0" y1="0" x2="300" [attr.y2]="bikerSizingData.inseam" style="stroke:red;stroke-width:2" />
+  <line x1="0" y1="20" x2="300" [attr.y2]="bikerSizingData.femurSize" style="stroke:red;stroke-width:2" />
+  <line x1="0" y1="30" x2="300" [attr.y2]="bikerSizingData.tibiaSize" style="stroke:red;stroke-width:2" />
+  <line x1="0" y1="40" x2="300" y2="200" style="stroke:red;stroke-width:2" />
+
+</svg>
