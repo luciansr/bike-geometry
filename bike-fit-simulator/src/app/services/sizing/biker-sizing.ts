@@ -1,27 +1,15 @@
-export class BikerSizing {
-  public height: number;
-  public inseam: number;
-  public torso: number;
-  public arm: number;
-  public footSize: number;
-  public tibiaSize: number;
-  public femurSize: number;
-  constructor() {
-    this.height = 179;
-    this.inseam = 82;
-    this.torso = 67;
-    this.arm = 67;
-    this.footSize = 42;
-    this.tibiaSize = 50;
-    this.femurSize = 50;
-  }
+import Sizing from './sizing';
 
-  public static sizingData(): Array<{
-    name: string;
-    type: string;
-    label: string;
-    placeholder: string;
-  }> {
+export class BikerSizing {
+  public height: number = 179;
+  public inseam: number = 82;
+  public torso: number = 67;
+  public arm: number = 67;
+  public footSize: number = 42;
+  public tibiaSize: number = 50;
+  public femurSize: number = 50;
+
+  public static sizingData(): Array<Sizing> {
     return [
       {
         name: 'height',
