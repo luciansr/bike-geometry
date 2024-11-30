@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BikerSizingDataService } from '../../../services/sizing/biker-sizing-data.service';
-import { CyclistSizing} from '../../../services/sizing/cyclist-sizing';
+import { BikerSizingDataService } from '../../../../services/sizing/biker-sizing-data.service';
+import { CyclistSizing} from '../../../../services/sizing/cyclist-sizing';
 import { CommonModule } from '@angular/common';
-import { SvgScaleService } from '../../../services/positioning/scale/svg-scale.service';
+import { SvgScaleService } from '../../../../services/positioning/scale/svg-scale.service';
 
 @Component({
   selector: 'app-biker-visualization',
