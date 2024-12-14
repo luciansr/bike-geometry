@@ -41,7 +41,7 @@ export class VisualizationPanelComponent implements OnInit {
       y: -50
     }
     console.log(this.bikeTranslation);
-    this.allLines = this.svgScaleService.translate(
+    this.allLines = this.svgScaleService.translateMany(
       this.bikePositioningData,
       this.bikeTranslation
     );
@@ -56,7 +56,7 @@ export class VisualizationPanelComponent implements OnInit {
     });
     this.byciclePositioningService.subscribe((data) => {
       this.bikePositioningData = data;
-      this.allLines = this.svgScaleService.translate(
+      this.allLines = this.svgScaleService.translateMany(
         this.bikePositioningData,
         this.bikeTranslation
       );

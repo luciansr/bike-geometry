@@ -30,20 +30,24 @@ export class SvgScaleService {
     };
   }
 
-  public translate(lines: StyledLine[], position: Position): StyledLine[] {
+  public translateMany(lines: StyledLine[], position: Position): StyledLine[] {
     return lines.map((line) => {
-      return new StyledLine(
-        {
-          x: line.start.x + position.x,
-          y: line.start.y + position.y,
-        },
-        {
-          x: line.end.x + position.x,
-          y: line.end.y + position.y,
-        },
-        line.lineStyle
-      );
+      return this.translate(line, position);
     });
+  }
+
+  public translate(line: StyledLine, position: Position): StyledLine {
+    return new StyledLine(
+      {
+        x: line.start.x + position.x,
+        y: line.start.y + position.y,
+      },
+      {
+        x: line.end.x + position.x,
+        y: line.end.y + position.y,
+      },
+      line.lineStyle
+    );
   }
 
   public getPositionDistanceFromGroundLeftInAnAngle(
@@ -55,8 +59,8 @@ export class SvgScaleService {
     const cos = Math.cos((angleInDegrees * Math.PI) / 180.0);
     const sin = Math.sin((angleInDegrees * Math.PI) / 180.0);
     const end = this.getPositionFromGroundLeft(
-      xInMilimeters - distanceInMilimeters * cos ,
-      yInMilimeters + distanceInMilimeters * sin 
+      xInMilimeters - distanceInMilimeters * cos,
+      yInMilimeters + distanceInMilimeters * sin
     );
 
     return end;
