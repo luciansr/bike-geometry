@@ -7,7 +7,7 @@ import { StyledLine } from '../styled-line';
 })
 export class SvgScaleService {
   private zoom = 2.0;
-  svgSizeX = this.zoom * 300; // 300 pixels = 3m = 300cm
+  svgSizeX = this.zoom * 250; // 250 pixels = 2.5m = 250cm
   svgSizeY = this.zoom * 200; // 200 pixels = 2m = 200cm
   private scale3M_X = 3 * 100 * 10; // 3M in mm
   private scale2M_Y = 2 * 100 * 10; // 2M in mm

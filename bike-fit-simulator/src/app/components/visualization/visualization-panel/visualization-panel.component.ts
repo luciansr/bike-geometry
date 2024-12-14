@@ -21,9 +21,8 @@ export class VisualizationPanelComponent implements OnInit {
   bikePositioningData: StyledLine[];
   allLines: StyledLine[];
 
-  private zoom = 2.0;
-  svgSizeX = this.zoom * 300; // 300 pixels = 3m = 300cm
-  svgSizeY = this.zoom * 200; // 200 pixels = 2m = 200cm
+  svgSizeX: number; // 300 pixels = 3m = 300cm
+  svgSizeY: number; // 200 pixels = 2m = 200cm
   bikeTranslation : Position;
 
   constructor(
@@ -32,12 +31,14 @@ export class VisualizationPanelComponent implements OnInit {
     private byciclePositioningService: ByciclePositioningService,
     private svgScaleService: SvgScaleService
   ) {
+    this.svgSizeX = this.svgScaleService.svgSizeX;
+    this.svgSizeY = this.svgScaleService.svgSizeY;
     this.cyclistSizingData = cyclistSizingDataService.getInitialValue();
     this.bikeSizingData = bikeSizingDataService.getInitialValue();
     this.bikePositioningData = byciclePositioningService.getInitialValue();
     this.bikeTranslation = {
-      x: 60,
-      y: -10
+      x: 150,
+      y: -50
     }
     console.log(this.bikeTranslation);
     this.allLines = this.svgScaleService.translate(
