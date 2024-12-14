@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BikeSizingDataService } from '../../../services/sizing/bike-sizing-data.service';
 import { BikeSizing } from '../../../services/sizing/bike-sizing';
@@ -9,7 +9,7 @@ import { BikeSizing } from '../../../services/sizing/bike-sizing';
   templateUrl: './bycicle-sizing.component.html',
   styleUrl: './bycicle-sizing.component.css'
 })
-export class BycicleSizingComponent {
+export class BycicleSizingComponent implements OnInit {
   bikeForm: FormGroup;
 
   sizingData = BikeSizing.sizingData();
