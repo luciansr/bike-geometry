@@ -50,7 +50,18 @@ export class ByciclePositioningService implements PositioningService {
       LineStyle.RED
     );
 
-    this.bikePositionData.next([stack, reach, seatTube]);
+    const handlebarSpacers = new StyledLine(
+      this.svgScaleService.getPositionFromGroundLeft(data.reach, data.stack),
+      this.svgScaleService.getPositionDistanceFromGroundLeftInAnAngle(
+        data.reach,
+        data.stack,
+        data.handlebarSpacers,
+        data.headTubeAngle
+      ),
+      LineStyle.RED
+    );
+
+    this.bikePositionData.next([stack, reach, seatTube, handlebarSpacers]);
   }
 
   subscribe(callback: (data: StyledLine[]) => void): Subscription {

@@ -52,8 +52,8 @@ export class SvgScaleService {
     distanceInMilimeters: number,
     angleInDegrees: number
   ): Position {
-    const cos = -Math.cos(angleInDegrees);
-    const sin = -Math.sin(angleInDegrees);
+    const cos = Math.cos((angleInDegrees * Math.PI) / 180.0);
+    const sin = Math.sin((angleInDegrees * Math.PI) / 180.0);
     console.log(cos, sin);
     const end = this.getPositionFromGroundLeft(
       xInMilimeters - distanceInMilimeters * cos ,
