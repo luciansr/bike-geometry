@@ -1,1 +1,20 @@
-<p>bycicle-sizing works!</p>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="pb-2 mb-0">Biker sizing</h6>
+
+    <form [formGroup]="bikeForm">
+        @for(item of sizingData; track item) {
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">{{item.label}}</span>
+                <input
+                    type="{{item.type}}"
+                    class="form-control"
+                    placeholder="{{item.placeholder}}"
+                    [attr.aria-label]="item.label"
+                    aria-describedby="basic-addon1"
+                    name="{{item.name}}"
+                    formControlName="{{item.name}}"
+                />
+            </div>
+        }
+    </form>
+</div>

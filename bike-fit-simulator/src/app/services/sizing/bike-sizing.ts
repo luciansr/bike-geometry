@@ -1,58 +1,73 @@
 import Sizing from './sizing';
 
 export class BikeSizing {
-  public height = 179;
-  public inseam = 82;
-  public torso = 67;
-  public arm = 67;
-  public footSize = 42;
-  public tibiaSize = 50;
-  public femurSize = 50;
+  public reach = 378;
+  public stack = 590;
+  public seatHeight = 750;
+  public seatTubeAngle = 73.5;
+  public seatSetBack = 0;
+  public headTubeAngle = 73;
+  public handlebarSpacers = 27.5;
+  public stemSize = 100;
+  public stemAngle = -7;
+
 
   public static sizingData(): Sizing[] {
     return [
       {
-        name: 'height',
+        name: 'reach',
         type: 'number',
-        label: 'Height',
-        placeholder: '179cm',
+        label: 'Reach (mm)',
+        placeholder: '378'
       },
       {
-        name: 'inseam',
+        name: 'stack',
         type: 'number',
-        label: 'Inseam',
-        placeholder: '82cm',
+        label: 'Stack (mm)',
+        placeholder: '590'
       },
       {
-        name: 'torso',
+        name: 'seatHeight',
         type: 'number',
-        label: 'Torso',
-        placeholder: '67cm',
+        label: 'Seat height (mm)',
+        placeholder: '750'
       },
       {
-        name: 'arm',
+        name: 'seatTubeAngle',
         type: 'number',
-        label: 'Arm',
-        placeholder: '67cm',
+        label: 'Seat tube angle (°)',
+        placeholder: '73.5'
       },
       {
-        name: 'footSize',
+        name: 'seatSetBack',
         type: 'number',
-        label: 'Foot Size',
-        placeholder: '42',
+        label: 'Seat set back (mm)',
+        placeholder: '0'
       },
       {
-        name: 'tibiaSize',
+        name: 'headTubeAngle',
         type: 'number',
-        label: 'Tibia Size',
-        placeholder: '50',
+        label: 'Head tube angle (°)',
+        placeholder: '73'
       },
       {
-        name: 'femurSize',
+        name: 'handlebarSpacers',
         type: 'number',
-        label: 'Femur Size',
-        placeholder: '50',
+        label: 'Handlebar spacers (mm)',
+        placeholder: '27.5'
       },
-    ];
+      {
+        name: 'stemSize',
+        type: 'number',
+        label: 'Stem size (mm)',
+        placeholder: '100'
+      },
+      {
+        name: 'stemAngle',
+        type: 'number',
+        label: 'Stem angle (°)',
+        placeholder: '-7'
+      }
+    ]
   }
 }

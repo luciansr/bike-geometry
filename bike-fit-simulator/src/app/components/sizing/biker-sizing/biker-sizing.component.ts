@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BikerSizingDataService } from '../../../services/sizing/biker-sizing-data.service';
+import { CyclistSizingDataService } from '../../../services/sizing/cyclist-sizing-data.service';
 import {
   FormBuilder,
   FormGroup,
@@ -20,16 +20,16 @@ export class BikerSizingComponent implements OnInit {
   sizingData = CyclistSizing.sizingData();
 
   constructor(
-    private bikerSizingDataService: BikerSizingDataService,
+    private cyclistSizingDataService: CyclistSizingDataService,
     private formBuilder: FormBuilder
   ) {
-    const initialValues = bikerSizingDataService.getInitialValue();
+    const initialValues = cyclistSizingDataService.getInitialValue();
     this.bikerForm = this.formBuilder.group<CyclistSizing>(initialValues);
   }
 
   ngOnInit(): void {
     this.bikerForm.valueChanges.subscribe((values: CyclistSizing) => {
-      this.bikerSizingDataService.updateBikerSizing(values);
+      this.cyclistSizingDataService.updateBikerSizing(values);
     });
   }
 }

@@ -4,6 +4,47 @@
   <div *ngIf="cyclistSizingData">
     {{ cyclistSizingData | json }}
   </div>
+  <div *ngIf="bikeSizingData">
+    {{ bikeSizingData | json }}
+  </div>
 
-  <app-biker-visualization> </app-biker-visualization>
+  <svg
+  [attr.height]="svgSizeY"
+  [attr.width]="svgSizeX"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- floor -->
+  <line
+    [attr.x1]="floor.x1"
+    [attr.y1]="floor.y1"
+    [attr.x2]="floor.x2"
+    [attr.y2]="floor.y2"
+    style="stroke: gray; stroke-width: 2"
+  />
+  <!-- bike -->
+   <!-- leg -->
+  <line
+    x1="0"
+    y1="0"
+    x2="300"
+    [attr.y2]="cyclistSizingData.inseam"
+    style="stroke: red; stroke-width: 2"
+  />
+  <line
+    x1="0"
+    y1="20"
+    x2="300"
+    [attr.y2]="cyclistSizingData.femurSize"
+    style="stroke: red; stroke-width: 2"
+  />
+  <line
+    x1="0"
+    y1="30"
+    x2="300"
+    [attr.y2]="cyclistSizingData.tibiaSize"
+    style="stroke: red; stroke-width: 2"
+  />
+  <line x1="0" y1="40" x2="300" y2="200" style="stroke: red; stroke-width: 2" />
+</svg>
+
 </div>
