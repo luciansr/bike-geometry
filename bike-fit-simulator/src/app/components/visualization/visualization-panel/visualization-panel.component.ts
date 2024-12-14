@@ -36,7 +36,7 @@ export class VisualizationPanelComponent implements OnInit {
     this.bikeSizingData = bikeSizingDataService.getInitialValue();
     this.bikePositioningData = byciclePositioningService.getInitialValue();
     this.bikeTranslation = {
-      x: 30,
+      x: 60,
       y: -10
     }
     console.log(this.bikeTranslation);

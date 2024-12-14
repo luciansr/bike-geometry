@@ -29,7 +29,7 @@ export class ByciclePositioningService implements PositioningService {
   private updatePosition(data: BikeSizing) {
     const stack = new StyledLine(
       this.svgScaleService.getPositionFromGroundLeft(0, 0),
-      this.svgScaleService.getPositionFromGroundLeft(0, data.stack),
+      this.svgScaleService.getPositionFromGroundLeft(data.reach, data.stack),
       LineStyle.RED
     );
 
@@ -39,7 +39,18 @@ export class ByciclePositioningService implements PositioningService {
       LineStyle.RED
     );
 
-    this.bikePositionData.next([stack, reach]);
+    const seatTube = new StyledLine(
+      this.svgScaleService.getPositionFromGroundLeft(0, 0),
+      this.svgScaleService.getPositionDistanceFromGroundLeftInAnAngle(
+        0,
+        0,
+        data.seatHeight,
+        data.seatTubeAngle
+      ),
+      LineStyle.RED
+    );
+
+    this.bikePositionData.next([stack, reach, seatTube]);
   }
 
   subscribe(callback: (data: StyledLine[]) => void): Subscription {

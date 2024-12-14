@@ -30,10 +30,7 @@ export class SvgScaleService {
     };
   }
 
-  public translate(
-    lines : StyledLine[],
-    position: Position
-  ): StyledLine[] {
+  public translate(lines: StyledLine[], position: Position): StyledLine[] {
     return lines.map((line) => {
       return new StyledLine(
         {
@@ -52,15 +49,17 @@ export class SvgScaleService {
   public getPositionDistanceFromGroundLeftInAnAngle(
     xInMilimeters: number,
     yInMilimeters: number,
-    // distanceInMilimeters: number,
-    // angleInDegrees: number
+    distanceInMilimeters: number,
+    angleInDegrees: number
   ): Position {
-    const x = 0 + (xInMilimeters / this.scale3M_X) * this.svgSizeX;
-    const y = this.svgSizeY + (yInMilimeters / this.scale2M_Y) * this.svgSizeY;
+    const cos = -Math.cos(angleInDegrees);
+    const sin = -Math.sin(angleInDegrees);
+    console.log(cos, sin);
+    const end = this.getPositionFromGroundLeft(
+      xInMilimeters - distanceInMilimeters * cos ,
+      yInMilimeters + distanceInMilimeters * sin 
+    );
 
-    return {
-      x: x,
-      y: y,
-    };
+    return end;
   }
 }
