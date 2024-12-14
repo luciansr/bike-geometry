@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Position } from '../position';
 
 @Injectable({
   providedIn: 'root',
@@ -18,10 +19,7 @@ export class SvgScaleService {
   public getPositionFromGroundLeft(
     xInMilimeters: number,
     yInMilimeters: number
-  ): {
-    x: number;
-    y: number;
-  } {
+  ): Position {
     const x = 0 + (xInMilimeters / this.scale3M_X) * this.svgSizeX;
     const y = this.svgSizeY + (yInMilimeters / this.scale2M_Y) * this.svgSizeY;
 

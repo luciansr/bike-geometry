@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { StyledLine } from '../styled-line';
+import { LineStyle, StyledLine } from '../styled-line';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { PositioningService } from '../positioning-service';
 import { BikeSizingDataService } from '../../sizing/bike-sizing-data.service';
 import { BikeSizing } from '../../sizing/bike-sizing';
+import { SvgScaleService } from '../scale/svg-scale.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,19 +15,32 @@ export class ByciclePositioningService implements PositioningService {
   >([]);
   private currentData: Observable<StyledLine[]> =
     this.bikePositionData.asObservable();
-  private bikeSizingData: BikeSizing;
 
-  constructor(private bikeSizingDataService: BikeSizingDataService) {
-    this.bikeSizingData = bikeSizingDataService.getInitialValue();
+  constructor(
+    private bikeSizingDataService: BikeSizingDataService,
+    private svgScaleService: SvgScaleService
+  ) {
+    this.updatePosition(bikeSizingDataService.getInitialValue());
     this.bikeSizingDataService.subscribe((data) => {
-      this.bikeSizingData = data;
+      this.updatePosition(data);
     });
   }
 
-  private updatePosition(data: StyledLine[]) {
-    this.bikePositionData.next(data);
-  }
+  private updatePosition(data: BikeSizing) {
+    const stack = new StyledLine(
+      this.svgScaleService.getPositionFromGroundLeft(0, 0),
+      this.svgScaleService.getPositionFromGroundLeft(0, data.stack),
+      LineStyle.RED
+    );
 
+    const reach = new StyledLine(
+      this.svgScaleService.getPositionFromGroundLeft(0, data.stack),
+      this.svgScaleService.getPositionFromGroundLeft(data.reach, data.stack),
+      LineStyle.RED
+    );
+
+    this.bikePositionData.next([stack, reach]);
+  }
 
   subscribe(callback: (data: StyledLine[]) => void): Subscription {
     return this.currentData.subscribe(callback);
