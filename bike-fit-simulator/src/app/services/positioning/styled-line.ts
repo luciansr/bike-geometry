@@ -2,6 +2,7 @@ import { Line } from './line';
 import { Position } from './position';
 
 export class StyledLine implements Line {
+  lineStyle: LineStyle;
   style: string
   constructor(
     public start: Position,
@@ -9,6 +10,7 @@ export class StyledLine implements Line {
     lineStyle: LineStyle
   ) {
     this.style = lineStyle;
+    this.lineStyle = lineStyle;
   }
 }
 
