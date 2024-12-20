@@ -19,10 +19,10 @@ export class MenuComponent {
       label: 'Bike Sizing',
       route: '/home/bycicle-sizing',
     },
-    {
-      label: 'About',
-      route: '/about',
-    },
+    // {
+    //   label: 'About',
+    //   route: '/about',
+    // },
   ];
 
   activeRoute = this.menuItems[0].route;
