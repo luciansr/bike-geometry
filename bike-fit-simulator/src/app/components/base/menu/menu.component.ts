@@ -11,10 +11,10 @@ import { filter } from 'rxjs/operators';
 })
 export class MenuComponent {
   menuItems = [
-    {
-      label: 'Cyclist sizing',
-      route: '/home/cyclist-sizing',
-    },
+    // {
+    //   label: 'Cyclist sizing',
+    //   route: '/home/cyclist-sizing',
+    // },
     {
       label: 'Bike Sizing',
       route: '/home/bycicle-sizing',

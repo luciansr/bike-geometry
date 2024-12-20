@@ -29,7 +29,7 @@ export class ByciclePositioningService implements PositioningService {
   private updatePosition(data: BikeSizing) {
     const stack = new StyledLine(
       this.svgScaleService.getPositionFromGroundLeft(0, 0),
-      this.svgScaleService.getPositionFromGroundLeft(data.reach, data.stack),
+      this.svgScaleService.getPositionFromGroundLeft(0, data.stack),
       LineStyle.RED
     );
 
