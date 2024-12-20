@@ -65,4 +65,16 @@ export class SvgScaleService {
 
     return end;
   }
+
+  public getDistanceBetween(
+    start: Position,
+    end: Position,
+  ): number {
+    const x = end.x - start.x;
+    const y = end.y - start.y;
+    const xInMilimeters = (x / this.svgSizeX) * this.scale3M_X;
+    const yInMilimeters = (y / this.svgSizeY) * this.scale2M_Y;
+    
+    return Math.sqrt(xInMilimeters * xInMilimeters + yInMilimeters * yInMilimeters);
+  }
 }

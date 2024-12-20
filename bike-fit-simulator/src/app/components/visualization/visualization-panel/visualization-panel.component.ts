@@ -16,6 +16,8 @@ import { Position } from '../../../services/positioning/position';
   styleUrl: './visualization-panel.component.css',
 })
 export class VisualizationPanelComponent implements OnInit {
+  private bikeTranslation: Position;
+
   cyclistSizingData: CyclistSizing;
   bikeSizingData: BikeSizing;
   bikePositioningData: StyledLine[];
@@ -23,7 +25,9 @@ export class VisualizationPanelComponent implements OnInit {
 
   svgSizeX: number; // 300 pixels = 3m = 300cm
   svgSizeY: number; // 200 pixels = 2m = 200cm
-  bikeTranslation : Position;
+
+  seatToHandlebarDistance = 0;
+  seatToHandlebarDrop = 0;
 
   constructor(
     private cyclistSizingDataService: CyclistSizingDataService,
@@ -38,9 +42,9 @@ export class VisualizationPanelComponent implements OnInit {
     this.bikePositioningData = byciclePositioningService.getInitialValue();
     this.bikeTranslation = {
       x: 150,
-      y: -50
-    }
-    console.log(this.bikeTranslation);
+      y: -50,
+    };
+
     this.allLines = this.svgScaleService.translateMany(
       this.bikePositioningData,
       this.bikeTranslation
@@ -60,6 +64,11 @@ export class VisualizationPanelComponent implements OnInit {
         this.bikePositioningData,
         this.bikeTranslation
       );
+
+      const { drop, distance } =
+        this.byciclePositioningService.getSeatToHandlebar();
+      this.seatToHandlebarDistance = distance;
+      this.seatToHandlebarDrop = drop;
     });
   }
 }

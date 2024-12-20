@@ -1,12 +1,41 @@
 <div class="my-3 p-3 bg-body rounded shadow-sm">
   <h6 class="pb-2 mb-0">Biker Visualization</h6>
 
-  <div *ngIf="cyclistSizingData">
+  <!-- <div *ngIf="cyclistSizingData">
     {{ cyclistSizingData | json }}
   </div>
   <div *ngIf="bikeSizingData">
     {{ bikeSizingData | json }}
-  </div>
+  </div> -->
+
+  <form>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"
+        >Seat to Handlebar Distance (mm)</span
+      >
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Seat to Handlebar distance"
+        aria-describedby="basic-addon1"
+        [value]="seatToHandlebarDistance"
+        disabled="true"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"
+        >Seat to Handlebar Drop (mm)</span
+      >
+      <input
+        type="number"
+        class="form-control"
+        aria-label="Seat to Handlebar distance"
+        aria-describedby="basic-addon1"
+        [value]="seatToHandlebarDrop"
+        disabled="true"
+      />
+    </div>
+  </form>
 
   <svg
     [attr.height]="svgSizeY"
@@ -14,16 +43,16 @@
     xmlns="http://www.w3.org/2000/svg"
     fill="red"
   >
-  <rect width="100%" height="100%" fill="gray"/>
-    
+    <rect width="100%" height="100%" fill="gray" />
+
     @for(line of allLines; track line) {
-      <line
-        [attr.x1]="line.start.x"
-        [attr.y1]="line.start.y"
-        [attr.x2]="line.end.x"
-        [attr.y2]="line.end.y"
-        [attr.style]="line.style"
-      />
+    <line
+      [attr.x1]="line.start.x"
+      [attr.y1]="line.start.y"
+      [attr.x2]="line.end.x"
+      [attr.y2]="line.end.y"
+      [attr.style]="line.style"
+    />
     }
   </svg>
 </div>

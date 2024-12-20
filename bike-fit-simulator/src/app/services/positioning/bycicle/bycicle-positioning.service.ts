@@ -15,6 +15,8 @@ export class ByciclePositioningService implements PositioningService {
   >([]);
   private currentData: Observable<StyledLine[]> =
     this.bikePositionData.asObservable();
+  private seatToHandlebarDistance = 0;
+  private seatToHandlebarDrop = 0;
 
   constructor(
     private bikeSizingDataService: BikeSizingDataService,
@@ -24,6 +26,13 @@ export class ByciclePositioningService implements PositioningService {
     this.bikeSizingDataService.subscribe((data) => {
       this.updatePosition(data);
     });
+  }
+
+  public getSeatToHandlebar(): {distance: number, drop: number} {
+    return {
+      distance: this.seatToHandlebarDistance,
+      drop: this.seatToHandlebarDrop
+    };
   }
 
   private updatePosition(data: BikeSizing) {
@@ -71,16 +80,27 @@ export class ByciclePositioningService implements PositioningService {
       ),
       LineStyle.RED
     );
-    console.log(handlebar);
 
-    const handlebarTranslated = this.svgScaleService.translate(
-      handlebar,
-      {
-        x: handlebarSpacers.end.x - handlebarSpacers.start.x,
-        y: handlebarSpacers.end.y - handlebarSpacers.start.y,
-      }
+
+    const handlebarTranslated = this.svgScaleService.translate(handlebar, {
+      x: handlebarSpacers.end.x - handlebarSpacers.start.x,
+      y: handlebarSpacers.end.y - handlebarSpacers.start.y,
+    });
+
+    this.seatToHandlebarDistance = this.svgScaleService.getDistanceBetween(
+      seatTube.end,
+      handlebarTranslated.end
     );
-    console.log(handlebarTranslated);
+    this.seatToHandlebarDrop = this.svgScaleService.getDistanceBetween(
+      {
+        x: 0,
+        y: seatTube.end.y,
+      },
+      {
+        x: 0,
+        y: handlebarTranslated.end.y,
+      },
+    );
 
     this.bikePositionData.next([
       stack,
