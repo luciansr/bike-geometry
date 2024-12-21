@@ -17,7 +17,7 @@ export class MenuComponent {
     // },
     {
       label: 'Bike Sizing',
-      route: '/home/bycicle-sizing',
+      route: '/',
     },
     // {
     //   label: 'About',
