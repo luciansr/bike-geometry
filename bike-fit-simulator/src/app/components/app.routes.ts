@@ -6,12 +6,12 @@ import { BycicleSizingComponent } from './sizing/bycicle-sizing/bycicle-sizing.c
 
 export const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
     children: [
       // { path: 'cyclist-sizing', component: BikerSizingComponent },
-      { path: 'bycicle-sizing', component: BycicleSizingComponent },
-      { path: '', redirectTo: '/home/bycicle-sizing', pathMatch: 'full' },
+      { path: '', component: BycicleSizingComponent },
+      // { path: '', redirectTo: '/home/bycicle-sizing', pathMatch: 'full' },
     ],
   },
   { path: 'about', component: AboutComponent },
