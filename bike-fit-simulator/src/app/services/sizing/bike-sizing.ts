@@ -5,7 +5,7 @@ export class BikeSizing {
   public stack = 590;
   public seatHeight = 750;
   public seatTubeAngle = 73.5;
-  public seatSetBack = 0;
+  // public seatSetBack = 0;
   public headTubeAngle = 73;
   public handlebarSpacers = 27.5;
   public stemSize = 100;
@@ -38,12 +38,12 @@ export class BikeSizing {
         label: 'Seat tube angle (°)',
         placeholder: '73.5'
       },
-      {
-        name: 'seatSetBack',
-        type: 'number',
-        label: 'Seat set back (mm)',
-        placeholder: '0'
-      },
+      // {
+      //   name: 'seatSetBack',
+      //   type: 'number',
+      //   label: 'Seat set back (mm)',
+      //   placeholder: '0'
+      // },
       {
         name: 'headTubeAngle',
         type: 'number',

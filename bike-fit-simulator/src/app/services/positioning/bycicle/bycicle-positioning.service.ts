@@ -70,6 +70,8 @@ export class ByciclePositioningService implements PositioningService {
       LineStyle.RED
     );
 
+    // console.log(data.reach, data.stack, data.handlebarSpacers, data.handlebarSpacers);
+
     const handlebar = new StyledLine(
       this.svgScaleService.getPositionFromGroundLeft(data.reach, data.stack),
       this.svgScaleService.getPositionDistanceFromGroundLeftInAnAngle(
